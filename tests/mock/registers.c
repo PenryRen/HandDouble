@@ -1,0 +1,21 @@
+#include "CH58x_common.h"
+volatile uint16_t R16_PIN_ANALOG_IE;
+volatile uint16_t R16_UEP0_DMA;
+volatile uint16_t R16_UEP1_DMA;
+volatile uint16_t R16_UEP2_DMA;
+volatile uint8_t R8_UDEV_CTRL;
+volatile uint8_t R8_UEP0_CTRL;
+volatile uint8_t R8_UEP0_T_LEN;
+volatile uint8_t R8_UEP1_CTRL;
+volatile uint8_t R8_UEP1_T_LEN;
+volatile uint8_t R8_UEP2_3_MOD;
+volatile uint8_t R8_UEP2_CTRL;
+volatile uint8_t R8_UEP2_T_LEN;
+volatile uint8_t R8_UEP4_1_MOD;
+volatile uint8_t R8_USB_CTRL;
+volatile uint8_t R8_USB_DEV_AD;
+volatile uint8_t R8_USB_INT_EN;
+volatile uint8_t R8_USB_INT_FG;
+volatile uint8_t R8_USB_INT_ST;
+volatile uint8_t R8_USB_MIS_ST;
+volatile uint8_t R8_USB_RX_LEN;

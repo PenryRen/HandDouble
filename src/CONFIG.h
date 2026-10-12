@@ -1,0 +1,28 @@
+#ifndef HANDDOUBLE_CONFIG_H
+#define HANDDOUBLE_CONFIG_H
+#define ID_CH583 0x83
+#define CHIP_ID ID_CH583
+#define BLE_MAC 0
+#define DCDC_ENABLE 1
+#define HAL_SLEEP 0
+#define HAL_KEY 0
+#define HAL_LED 0
+#define CLK_OSC32K 0
+#define TEM_SAMPLE 1
+#define BLE_CALIBRATION_ENABLE 1
+#define BLE_CALIBRATION_PERIOD 120000
+#define BLE_SNV 1
+#define BLE_SNV_ADDR 0x7e00
+#define BLE_SNV_BLOCK 256
+#define BLE_SNV_NUM 2
+#define BLE_MEMHEAP_SIZE (12*1024)
+#define BLE_BUFF_MAX_LEN 251
+#define BLE_BUFF_NUM 8
+#define BLE_TX_NUM_EVENT 2
+#define PERIPHERAL_MAX_CONNECTION 2
+#define CENTRAL_MAX_CONNECTION 0
+#include "CH58xBLE_LIB.h"
+#include "CH58x_common.h"
+#define BLE_TX_POWER LL_TX_POWEER_0_DBM
+extern uint32_t MEM_BUF[BLE_MEMHEAP_SIZE/4];
+#endif

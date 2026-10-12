@@ -1,0 +1,25 @@
+# MounRiver includes this project-owned file after its generated subdir.mk files.
+# Older/cached project scans can omit the nested SDK HAL source directory.
+# Supply the missing objects only; regenerated builds that discover the SDK
+# normally already have MCU.o / RTC.o and must not link duplicate definitions.
+HD_HAL_FLAGS := -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -Os -g -std=gnu99 -ffunction-sections -fdata-sections -fno-common
+HD_HAL_INCLUDES := -I../src -I../StdPeriphDriver/inc -I../RVMSIS -I../sdk/BLE/LIB -I../sdk/BLE/HAL/include
+.DEFAULT_GOAL := all
+
+ifeq ($(filter %/MCU.o,$(OBJS)),)
+OBJS += hd_hal_MCU.o
+DIR_OBJS += hd_hal_MCU.o
+C_DEPS += hd_hal_MCU.d
+hd_hal_MCU.o: ../sdk/BLE/HAL/MCU.c ../src/CONFIG.h ../sdk/BLE/HAL/include/config.h
+	@riscv-none-embed-gcc $(HD_HAL_FLAGS) $(HD_HAL_INCLUDES) -MMD -MP -MF hd_hal_MCU.d -c $< -o $@
+endif
+
+ifeq ($(filter %/RTC.o,$(OBJS)),)
+OBJS += hd_hal_RTC.o
+DIR_OBJS += hd_hal_RTC.o
+C_DEPS += hd_hal_RTC.d
+hd_hal_RTC.o: ../sdk/BLE/HAL/RTC.c ../src/CONFIG.h ../sdk/BLE/HAL/include/config.h
+	@riscv-none-embed-gcc $(HD_HAL_FLAGS) $(HD_HAL_INCLUDES) -MMD -MP -MF hd_hal_RTC.d -c $< -o $@
+endif
+
+-include hd_hal_MCU.d hd_hal_RTC.d

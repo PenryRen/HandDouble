@@ -1,0 +1,8 @@
+build/
+obj/
+vendor/
+tests/python-deps/
+tests/__pycache__/
+.mrs/
+# Redundant header copied beside the project; SDK header is tracked under sdk/.
+/CH58xBLE_LIB.h
